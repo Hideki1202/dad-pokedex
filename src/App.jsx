@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import FormPokemon from './components/FormPokemon.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,7 +9,7 @@ function App() {
     <>
       <div className="container-principal">
         <div className='container-lins'>
-          <h1>Lins</h1>
+          <FormPokemon/>
         </div>
         <div className='container-hideki'>
           <h2>Hideki</h2>
