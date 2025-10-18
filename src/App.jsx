@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
+import './App.css'
+import PokemonCard from './components/pokemon-card'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -14,6 +13,14 @@ function App() {
         </div>
         <div className='container-hideki'>
           <h2>Hideki</h2>
+          <PokemonCard pokemon={{
+            id: "#025",
+            name: "Pikachu",
+            image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+            power: 25,
+            description: "Pikachu que tem bochechas amarelas cheias de eletricidade.",
+
+          }} />
         </div>
 
       </div>
