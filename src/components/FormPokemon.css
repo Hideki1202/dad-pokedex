@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.logo img {
+  width: 300px;
+  height: auto;
+}
+
+.pagina {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 150px; 
+}
+
+.card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 120px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+textarea {
+  background-color: #eaeaea;
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 10px;
+  outline: none;
+  color: black;
+}
+
+textarea {
+  resize: none;
+  height: auto;
+}
+
+label {
+  font-size: 14px;
+  margin-top: 15px;
+  color: black;
+}
+
+.tipos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.tipo {
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.tipo:hover {
+  transform: scale(1.05);
+}
+
+.fogo { background-color: #f44336; color: white; }
+.agua { background-color: #2196f3; color: white; }
+.grama { background-color: #4caf50; color: white; }
+.eletrico { background-color: #ffeb3b; color: black; }
+.psiquico { background-color: #b0bec5; color: black; }
+.pedra { background-color: #e57373; color: white; }
+
+.tipo.ativo {
+  transform: scale(1.1);
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.poder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.poder p {
+  font-size: 14px;
+  color: black;
+}
+
+.mais,
+.menos {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mais { color: green; }
+.menos { color: red; }
+
+.btn-add {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 50px;
+  padding: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-add:hover {
+  background-color: #d32f2f;
+}
