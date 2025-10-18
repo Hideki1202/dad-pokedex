@@ -1,0 +1,15 @@
+.fogo { background-color: #f44336; color: white; }
+.agua { background-color: #2196f3; color: white; }
+.grama { background-color: #4caf50; color: white; }
+.eletrico { background-color: #ffeb3b; color: black; }
+.psiquico { background-color: #b0bec5; color: black; }
+.pedra { background-color: #e57373; color: white; }
+
+.tipo {
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}

@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "./FormPokemon.css";
 import logo from "../assets/pokemon_logo_pixel.png";
 
-const Forms = () => {
+const Forms = ({ onAddPokemon }) => { 
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [poder, setPoder] = useState(1);
   const [tipoSelecionado, setTipoSelecionado] = useState(null);
+  const [imagem, setImagem] = useState("");
 
   const tipos = [
     { nome: "Fogo", classe: "fogo", icone: "🔥" },
@@ -19,22 +20,24 @@ const Forms = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!nome || !tipoSelecionado || !descricao) {
+
+    if (!nome || !tipoSelecionado || !descricao || !imagem) {
       alert("Preencha todos os campos!");
       return;
     }
 
-    const novoPokemon = { nome, tipo: tipoSelecionado, descricao, poder };
+    const novoPokemon = { nome, tipo: tipoSelecionado, descricao, poder, imagem };
+
     const pokemonsSalvos = JSON.parse(localStorage.getItem("pokemons")) || [];
-    localStorage.setItem(
-      "pokemons",
-      JSON.stringify([...pokemonsSalvos, novoPokemon])
-    );
+    localStorage.setItem("pokemons", JSON.stringify([...pokemonsSalvos, novoPokemon]));
+
+    if (onAddPokemon) onAddPokemon(novoPokemon);
 
     setNome("");
     setDescricao("");
     setTipoSelecionado(null);
     setPoder(1);
+    setImagem("");
 
     alert("Pokémon adicionado com sucesso!");
   };
@@ -56,15 +59,20 @@ const Forms = () => {
             onChange={(e) => setNome(e.target.value)}
           />
 
+          <input
+            type="url"
+            placeholder="Link da imagem do Pokémon"
+            value={imagem}
+            onChange={(e) => setImagem(e.target.value)}
+          />
+
           <label>Tipo</label>
           <div className="tipos">
             {tipos.map((t) => (
               <button
                 key={t.nome}
                 type="button"
-                className={`tipo ${t.classe} ${
-                  tipoSelecionado === t.nome ? "ativo" : ""
-                }`}
+                className={`tipo ${t.classe} ${tipoSelecionado === t.nome ? "ativo" : ""}`}
                 onClick={() => setTipoSelecionado(t.nome)}
               >
                 {t.icone} {t.nome}
@@ -81,26 +89,12 @@ const Forms = () => {
 
           <label>Poder</label>
           <div className="poder">
-            <button
-              type="button"
-              onClick={() => setPoder(poder + 1)}
-              className="mais"
-            >
-              +
-            </button>
+            <button type="button" onClick={() => setPoder(poder + 1)} className="mais">+</button>
             <p>{poder}</p>
-            <button
-              type="button"
-              onClick={() => setPoder(poder > 1 ? poder - 1 : 1)}
-              className="menos"
-            >
-              -
-            </button>
+            <button type="button" onClick={() => setPoder(poder > 1 ? poder - 1 : 1)} className="menos">-</button>
           </div>
 
-          <button type="submit" className="btn-add">
-            Adicionar
-          </button>
+          <button type="submit" className="btn-add">Adicionar</button>
         </form>
       </div>
     </div>

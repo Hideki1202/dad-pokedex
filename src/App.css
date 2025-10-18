@@ -39,9 +39,17 @@
     transform: rotate(360deg);
   }
 }
+
+.cards-container{
+  margin-top: 65pt;
+}
 .container-hideki{
   width: 50%;;
   align-items: center;
+  height: 800px; 
+  margin-top: 50pt;   
+  overflow-y: auto;         
+  overflow-x: hidden;  
 }
 .container-lins{
   width: 50%;;
@@ -60,6 +68,7 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+
 
 .card {
   padding: 2em;
